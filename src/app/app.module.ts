@@ -5,6 +5,7 @@ import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {SpeechRecognition} from '@ionic-native/speech-recognition/ngx';
+import {TextToSpeech} from '@ionic-native/text-to-speech/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +13,8 @@ import {SpeechRecognition} from '@ionic-native/speech-recognition/ngx';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-    SpeechRecognition
+    SpeechRecognition,
+    TextToSpeech
   ],
   bootstrap: [AppComponent],
 })
