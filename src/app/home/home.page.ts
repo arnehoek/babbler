@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { DataService, Message } from '../services/data.service';
+import {Component} from '@angular/core';
 import {ResponderService} from '../services/responder.service';
+import {Phrases} from '../services/phrases';
 
 @Component({
   selector: 'app-home',
@@ -8,19 +8,11 @@ import {ResponderService} from '../services/responder.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private data: DataService, private responderService: ResponderService) {}
 
-  refresh(ev) {
-    setTimeout(() => {
-      ev.detail.complete();
-    }, 3000);
+  constructor(public phrases: Phrases, private responderService: ResponderService) {
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
-  }
-
-  ionViewDidEnter() {
+  talk() {
     this.responderService.startResponding();
   }
 }

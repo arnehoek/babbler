@@ -1,10 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import {Component} from '@angular/core';
-import {SpeechRecognition} from '@ionic-native/speech-recognition/ngx';
-import {tap} from 'rxjs/operators';
-import {TextToSpeech} from '@ionic-native/text-to-speech/ngx';
-import {Responses} from './services/responses';
-import {ResponderService} from './services/responder.service';
+import {Phrases} from './services/phrases';
 
 @Component({
   selector: 'app-root',
@@ -14,14 +10,13 @@ import {ResponderService} from './services/responder.service';
 export class AppComponent {
 
   constructor(
-    private responses: Responses,
-    private responderService: ResponderService
+    private responses: Phrases,
   ) {
-    this.responses.next({
-      Hello: 'Hello',
-      'What\'s your name': 'Michel',
-      'How are you': 'fine and how are you?'
-    });
+    this.responses.next([
+      {question: 'Hello', response: 'Hello'},
+      {question: 'What\'s your name', response: 'Michel'},
+      {question: 'How are you', response: 'fine and how are you?'}
+    ]);
   }
 
 }

@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="phrase">
+  <ion-item>
+    <ion-icon name="chatbox-ellipses-outline" color="primary"></ion-icon>
+    <ion-label class="ion-text-wrap">
+      <h2>
+        {{ phrase.question }}
+      </h2>
+    </ion-label>
+  </ion-item>
+
+  <div class="ion-padding">
+    <h1>{{ phrase.response }}</h1>
+  </div>
+
+</ion-content>
