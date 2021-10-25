@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService, Message } from '../services/data.service';
+import {ResponderService} from '../services/responder.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private data: DataService) {}
+  constructor(private data: DataService, private responderService: ResponderService) {}
 
   refresh(ev) {
     setTimeout(() => {
@@ -19,4 +20,7 @@ export class HomePage {
     return this.data.getMessages();
   }
 
+  ionViewDidEnter() {
+    this.responderService.startResponding();
+  }
 }

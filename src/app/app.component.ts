@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import {Component} from '@angular/core';
 import {SpeechRecognition} from '@ionic-native/speech-recognition/ngx';
 import {tap} from 'rxjs/operators';
 import {TextToSpeech} from '@ionic-native/text-to-speech/ngx';
+import {Responses} from './services/responses';
+import {ResponderService} from './services/responder.service';
 
 @Component({
   selector: 'app-root',
@@ -11,19 +14,14 @@ import {TextToSpeech} from '@ionic-native/text-to-speech/ngx';
 export class AppComponent {
 
   constructor(
-    private textToSpeech: TextToSpeech,
-    private speechRecognition: SpeechRecognition
+    private responses: Responses,
+    private responderService: ResponderService
   ) {
-    this.speechRecognition.isRecognitionAvailable()
-      .then((available: boolean) => console.log(available));
-    this.testSpeech();
+    this.responses.next({
+      Hello: 'Hello',
+      'What\'s your name': 'Michel',
+      'How are you': 'fine and how are you?'
+    });
   }
 
-  async testSpeech() {
-    await this.textToSpeech.speak({text: 'Goeiemiddag Apeldoorn', locale: 'nl', rate: 1.25});
-    const langs = await this.speechRecognition.getSupportedLanguages();
-    console.log(langs);
-    await this.speechRecognition.requestPermission();
-    this.speechRecognition.startListening({showPartial: true, language: 'nl'}).pipe(tap(console.log)).subscribe();
-  }
 }
