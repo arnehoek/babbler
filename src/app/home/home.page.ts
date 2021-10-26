@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {ResponderService} from '../services/responder.service';
 import {Phrases} from '../services/phrases';
 
 @Component({
@@ -9,10 +8,6 @@ import {Phrases} from '../services/phrases';
 })
 export class HomePage {
 
-  constructor(public phrases: Phrases, private responderService: ResponderService) {
-  }
-
-  talk() {
-    this.responderService.startResponding();
+  constructor(public phrases: Phrases) {
   }
 }

@@ -14,17 +14,4 @@
       </ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <ion-list>
-    <app-phrase-list-item *ngFor="let phrase of phrases | async" [phrase]="phrase"></app-phrase-list-item>
-  </ion-list>
-
-  <ion-grid>
-    <ion-row class="ion-align-items-center">
-      <ion-col class="ion-text-center">
-        <ion-button (click)="talk()">Talk</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
 </ion-content>
