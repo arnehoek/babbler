@@ -17,12 +17,12 @@ export class ResponderService {
 
   async startResponding(): Promise<void> {
     await this.speechRecognition.requestPermission();
-    this.speechRecognition.startListening({language: 'en-US'}).subscribe(async speech => {
+    this.speechRecognition.startListening({language: 'en-US', matches: 20, showPartial: true}).subscribe(async speech => {
       const response = this.responses.findMatchingResponse(speech);
       if (response) {
         await this.textToSpeech.speak(response);
+        await this.speechRecognition.stopListening();
       }
-      this.startResponding();
     });
   }
 }

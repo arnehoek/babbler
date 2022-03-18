@@ -14,8 +14,8 @@ export class AppComponent {
   ) {
     this.responses.next([
       {question: 'Hello', response: 'Hello'},
-      {question: 'How are you', response: 'fine and how are you?'},
-      {question: 'What is the greatest city on earth', response: 'Apeldoorn'},
+      {question: 'How are you', response: 'Fine and how are you?'},
+      {question: 'What is the greatest city on earth', response: 'Zwolle'},
       {
         question: 'What is this presentation about', response:
           'This is a presentation about ionic. It is a hybrid app platform and it is awesome. But I say that because I am written in it.'

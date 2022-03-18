@@ -1,5 +1,5 @@
 {
-	"appId": "io.ionic.starter",
+	"appId": "nl.ilionx.babbler",
 	"appName": "babbler",
 	"webDir": "www",
 	"bundledWebRuntime": false
